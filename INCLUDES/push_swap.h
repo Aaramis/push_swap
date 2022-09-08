@@ -22,5 +22,6 @@ void	ft_check_nbr(char *str);
 void	ft_check_argv(int argc, char **argv);
 void	ft_lstadd_back_s(t_stack **lst, t_stack *new);
 t_stack	*ft_lstlast_s(t_stack *lst);
+void	ft_lstclear_s(t_stack **lst);
 
 #endif

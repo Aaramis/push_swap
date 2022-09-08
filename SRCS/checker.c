@@ -21,6 +21,7 @@ void	ft_check_nbr(char *str)
 
 void	ft_check_argv(int argc, char **argv)
 {
+// ne check pas encore les overflow
 	int	pos;
 	int	pos2;
 

@@ -41,3 +41,20 @@ t_stack	*ft_lstlast_s(t_stack *lst)
 		lst = lst->next;
 	return (lst);
 }
+
+void	ft_lstclear_s(t_stack **lst)
+{
+	t_stack	*elt;
+
+	if (!lst || !(*lst))
+		return ;
+	while (*lst)
+	{
+		elt = (*lst)->next;
+		free(*lst);
+		*lst = elt;
+	}
+	*lst = NULL;
+}
+
+
