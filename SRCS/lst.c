@@ -5,6 +5,20 @@
 
 #include "push_swap.h"
 
+int	ft_lstsize_s(t_stack *lst)
+{
+	size_t	len;
+
+	if (!lst)
+		return (0);
+	len = 1;
+	while (lst->next)
+	{
+		lst = lst->next;
+		len++;
+	}
+	return (len);
+}
 
 t_stack	*ft_lstnew_s(int content)
 {
