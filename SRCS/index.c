@@ -37,7 +37,7 @@ int	ft_lstnb_sup(t_stack *lst, int val)
 	int	sup;
 
 	sup = ft_lstmax(lst);
-	while (lst->next)
+	while (lst)
 	{
 		if (lst->data > val && lst->data < sup)
 			sup = lst->data;
@@ -51,7 +51,7 @@ int	ft_lstnb_inf(t_stack *lst, int val)
 	int	inf;
 
 	inf = ft_lstmin(lst);
-	while (lst->next)
+	while (lst)
 	{
 		if (lst->data < val && lst->data > inf)
 			inf = lst->data;
