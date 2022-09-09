@@ -36,7 +36,8 @@ int	ft_lstnb_sup(t_stack *lst, int val);
 
 void	ft_algo_3(t_stack **begin);
 
-void	ft_sa(t_stack ***begin);
+void	ft_s_stack(t_stack ***begin);
+void	ft_r_stack(t_stack ***begin);
 
 //a supprimer
 void	ft_print_ma_list(t_stack **begin);

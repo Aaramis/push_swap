@@ -20,16 +20,22 @@ void	ft_algo_3(t_stack **begin)
 {
 	t_stack	*s_elt;
 
-	s_elt = (*begin)->next;
 	if ((*begin)->index == 3)
+	{
+		ft_print_ma_list(begin);
+		ft_printf("\n");
+		ft_r_stack(&begin);
+		ft_print_ma_list(begin);
 		ft_printf("ra\n");
+	}
+	s_elt = (*begin)->next;
 	if (s_elt->index == 3)
 		ft_printf("rra\n");
 	if ((*begin)->index > s_elt->index)
 	{
 		ft_print_ma_list(begin);
 		ft_printf("\n");
-		ft_sa(&begin);
+		ft_s_stack(&begin);
 		ft_print_ma_list(begin);
 		ft_printf("sa\n");
 	}
