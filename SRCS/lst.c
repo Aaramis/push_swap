@@ -32,6 +32,14 @@ t_stack	*ft_lstnew_s(int content)
 	return (list);
 }
 
+void	ft_lstadd_front_s(t_stack **lst, t_stack *new)
+{
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	(*lst) = new;
+}
+
 void	ft_lstadd_back_s(t_stack **lst, t_stack *new)
 {
 	t_stack	*lst_last;

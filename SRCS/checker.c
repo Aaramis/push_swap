@@ -4,6 +4,25 @@
 
 #include "push_swap.h"
 
+void	ft_lst_check_sort(t_stack **begin)
+{
+	t_stack	*next;
+	t_stack *first;
+
+	first = *begin;
+	while (first && first->next)
+	{
+		next = first->next;
+		//ft_printf("%d %d\n",(*begin)->index, next->data);
+		if (next->index > first->index)
+			break;
+		first = next;
+		next = next->next;
+	}
+	if (!first)
+		exit (0);
+}
+
 void	ft_check_nbr(char *str)
 {
 	if (*str == 45)

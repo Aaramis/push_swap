@@ -37,7 +37,8 @@ t_stack  	*ft_parsing(int argc,char **argv)
 	{
 		newelt = ft_lstnew_s(ft_atoi(argv[argc]));
 		if (newelt)
-			ft_lstadd_back_s(&begin, newelt);
+			//ft_lstadd_back_s(&begin, newelt);
+			ft_lstadd_front_s(&begin, newelt);
 		else
 		{
 			ft_lstclear_s(&begin);

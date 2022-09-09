@@ -8,6 +8,9 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		stack_a = ft_parsing(argc, argv);
+		ft_lst_check_sort(&stack_a);
+		if (ft_lstsize_s(stack_a) == 3)
+			ft_algo_3(&stack_a);
 	}
 	//ft_printf("tedt");
 	(void)argc;
