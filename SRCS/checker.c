@@ -1,25 +1,35 @@
-//############
-//## Header ##
-//############
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/10 10:38:37 by agardett          #+#    #+#             */
+/*   Updated: 2022/09/10 14:29:45 by agardett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	ft_lst_check_sort(t_stack **begin)
 {
 	t_stack	*next;
-	t_stack *first;
+	t_stack	*first;
 
 	first = *begin;
+	// ft_print_ma_list(begin);
 	while (first && first->next)
 	{
 		next = first->next;
-		//ft_printf("%d %d\n",(*begin)->index, next->data);
-		if (next->index > first->index)
-			break;
+//		ft_printf("%d %d\n",next->index, first->index);
+		if (next->index < first->index)
+			break ;
 		first = next;
 		next = next->next;
 	}
-	if (!first)
+//	printf("%p %d\n",first->next, first->index);
+	if (!first->next)
 		exit (0);
 }
 
@@ -31,16 +41,16 @@ void	ft_check_nbr(char *str)
 	{
 		if (!ft_isdigit(*str))
 		{
-			write(2,"Error\n",6);
-			exit(1);
+			write(2, "Error\n", 6);
+			exit (1);
 		}
 		str++;
 	}
 }
 
+// ne check pas encore les overflow
 void	ft_check_argv(int argc, char **argv)
 {
-// ne check pas encore les overflow
 	int	pos;
 	int	pos2;
 
@@ -53,8 +63,8 @@ void	ft_check_argv(int argc, char **argv)
 		{
 			if (ft_atoi(argv[pos]) == ft_atoi(argv[pos2]))
 			{
-				write(2,"Error\n",6);
-				exit(1);
+				write(2, "Error\n", 6);
+				exit (1);
 			}
 		}
 	}

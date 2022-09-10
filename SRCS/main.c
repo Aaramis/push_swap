@@ -1,20 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/10 10:38:03 by agardett          #+#    #+#             */
+/*   Updated: 2022/09/10 17:50:08 by agardett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	stack_a = NULL;
+	stack_b = NULL;
 	if (argc > 1)
 	{
 		stack_a = ft_parsing(argc, argv);
 		ft_lst_check_sort(&stack_a);
 		if (ft_lstsize_s(stack_a) == 3)
 			ft_algo_3(&stack_a);
+		else if (ft_lstsize_s(stack_a) > 3)
+		{
+			ft_sort_by_median(&stack_a, &stack_b);
+			ft_algo_3(&stack_a);
+			ft_pos_elt(&stack_a);
+			ft_pos_elt(&stack_b);
+			ft_target_elt(&stack_a, &stack_b);
+			ft_cost(&stack_a, &stack_b);
+		}
 	}
-	//ft_printf("tedt");
+	ft_print_ma_list(&stack_a);
+	printf("\n");
+	ft_print_ma_list(&stack_b);
 	(void)argc;
 	(void)argv;
 	(void)stack_a;
-	return(0);
+	return (0);
 }

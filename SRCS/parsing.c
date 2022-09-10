@@ -1,6 +1,14 @@
-//#############
-//## Header ###
-//#############
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/10 10:41:12 by agardett          #+#    #+#             */
+/*   Updated: 2022/09/10 12:23:58 by agardett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -25,24 +33,24 @@ void	ft_index_stack(t_stack **begin)
 	}
 }
 
-t_stack  	*ft_parsing(int argc,char **argv)
+//overflow pas gere
+t_stack	*ft_parsing(int argc, char **argv)
 {
 	t_stack	*begin;
 	t_stack	*newelt;
 
-	begin = NULL;
 	newelt = NULL;
-	ft_check_argv(argc, argv); //overflow pas géré
+	begin = NULL;
+	ft_check_argv(argc, argv);
 	while (--argc)
 	{
 		newelt = ft_lstnew_s(ft_atoi(argv[argc]));
 		if (newelt)
-			//ft_lstadd_back_s(&begin, newelt);
 			ft_lstadd_front_s(&begin, newelt);
 		else
 		{
 			ft_lstclear_s(&begin);
-			exit(1);
+			exit (1);
 		}
 	}
 	ft_index_stack(&begin);

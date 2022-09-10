@@ -9,7 +9,7 @@
 # 	FILES
 SRC_F		= ./SRCS/
 LIBFT_F		= ./libft
-FILES		= parsing checker lst index algo mouve
+FILES		= parsing checker lst index algo mouve pos
 
 SRCS		= $(addsuffix .c,$(FILES))
 OBJS		= $(addprefix $(SRC_F),$(addsuffix .o,$(FILES)))
