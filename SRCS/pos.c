@@ -59,8 +59,9 @@ int	ft_cost_fin(int size_a, int size_b, t_stack *elt)
 	int	nb;
 
 	nb = ft_cost_to_top(size_b, elt->pos);
-	na = ft_cost_to_top(size_a, elt->target);
-	if ((na - nb) != (nb - na))
+	na = ft_cost_to_top((size_a + 1), elt->target);
+//	printf("size a %d  a %d b %d \n",size_a, na, nb);
+	if ((na - nb) == (nb - na))
 	{
 		if (na > nb)
 			return (ft_abs(na));
