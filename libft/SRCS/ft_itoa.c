@@ -6,7 +6,7 @@
 /*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 19:57:56 by agardett          #+#    #+#             */
-/*   Updated: 2022/05/07 16:15:41 by agardett         ###   ########.fr       */
+/*   Updated: 2022/09/10 17:37:15 by agardett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_len(int n)
 	return (len);
 }
 
-static int	ft_abs(int n)
+int	ft_abs(int n)
 {
 	if (n < 0)
 		return ((-n));

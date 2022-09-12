@@ -1,7 +1,14 @@
-//
-//	HEADER
-//
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lst.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/10 10:36:35 by agardett          #+#    #+#             */
+/*   Updated: 2022/09/10 10:36:54 by agardett         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -24,10 +31,13 @@ t_stack	*ft_lstnew_s(int content)
 {
 	t_stack	*list;
 
-	list = malloc(sizeof(t_list));
+	list = malloc(sizeof(*list));
 	if (!list)
 		return (NULL);
 	list->data = content;
+	list->pos = 0;
+	list->target = 0;
+	list->cost = 0;
 	list->next = NULL;
 	return (list);
 }
@@ -43,7 +53,7 @@ void	ft_lstadd_front_s(t_stack **lst, t_stack *new)
 void	ft_lstadd_back_s(t_stack **lst, t_stack *new)
 {
 	t_stack	*lst_last;
-
+	
 	if (!lst || !new)
 		return ;
 	if (*lst == NULL)
@@ -78,5 +88,3 @@ void	ft_lstclear_s(t_stack **lst)
 	}
 	*lst = NULL;
 }
-
-

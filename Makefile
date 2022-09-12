@@ -9,7 +9,7 @@
 # 	FILES
 SRC_F		= ./SRCS/
 LIBFT_F		= ./libft
-FILES		= parsing checker lst index algo mouve
+FILES		= parsing checker lst index algo mouve pos
 
 SRCS		= $(addsuffix .c,$(FILES))
 OBJS		= $(addprefix $(SRC_F),$(addsuffix .o,$(FILES)))
@@ -23,6 +23,7 @@ LIB_F		= $(LIBFT_F)/$(NAME_LIB)
 
 #	COMPILER
 CC		= cc -g
+SANITIZE	= -fsanitize=address
 RM		= rm -f
 LINKER		= ar rcs 
 WFLAGS		= -Wall -Werror -Wextra

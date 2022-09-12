@@ -6,7 +6,7 @@
 #    By: agardett <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 17:38:06 by agardett          #+#    #+#              #
-#    Updated: 2022/05/08 17:35:55 by agardett         ###   ########.fr        #
+#    Updated: 2022/09/10 10:45:02 by agardett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,6 @@ all:		$(NAME_EX)
 $(NAME_EX):	
 		@cd $(SRCS_F) && $(CC) $(WFLAGS) -I .$(SRCS_H) -c $(SRCS)
 		@$(LINKER) $(NAME_LIB) $(OBJS)
-		@$(CC) $(GFLAGS) main.c $(NAME_LIB) -o $(NAME_EX)	
 		@echo $(BLUE) "Libft Compiled" $(EOC)
 
 clean:		
