@@ -20,7 +20,7 @@ void	ft_print_ma_list(t_stack **begin)
 	while (elt)
 	{
 		//ft_printf("val: %d - ind: %d - pos: %d - ad: %p - pt: %p \n", elt->data, elt->index, elt->pos, elt, elt->next);
-		ft_printf("val: %d - ind: %d - pos: %d - target: %d - cost: %d\n", elt->data, elt->index, elt->pos, elt->target, elt->cost);
+		ft_printf("val: %d - ind: %d - pos: %d - target: %d - costA: %d - costB: %d\n", elt->data, elt->index, elt->pos, elt->target, elt->cost_a, elt->cost_b);
 		elt = elt->next;
 	}
 }

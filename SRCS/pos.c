@@ -53,14 +53,8 @@ int	ft_cost_to_top(int size, int value)
 		return (value);
 }
 
-int	ft_cost_fin(int size_a, int size_b, t_stack *elt)
-{
-	int	na;
-	int	nb;
-
-	nb = ft_cost_to_top(size_b, elt->pos);
-	na = ft_cost_to_top((size_a + 1), elt->target);
 //	printf("size a %d  a %d b %d \n",size_a, na, nb);
+/*
 	if ((na - nb) == (nb - na))
 	{
 		if (na > nb)
@@ -69,20 +63,21 @@ int	ft_cost_fin(int size_a, int size_b, t_stack *elt)
 	}
 	else
 		return ((ft_abs(na) + ft_abs(nb)));
-}
+*/
 
 void	ft_cost(t_stack **beg_a, t_stack **beg_b)
 {
-	t_stack	*elt_b;
+	t_stack	*elt;
 	int	size_a;
 	int	size_b;
 
-	elt_b = (*beg_b);
+	elt = (*beg_b);
 	size_a = ft_lstsize_s(*beg_a);
 	size_b = ft_lstsize_s(*beg_b);
-	while (elt_b)
+	while (elt)
 	{
-		elt_b->cost = ft_cost_fin(size_a, size_b, elt_b);
-		elt_b = elt_b->next;
+		elt->cost_b = ft_cost_to_top(size_b, elt->pos);
+		elt->cost_a = ft_cost_to_top((size_a + 1), elt->target);
+		elt = elt->next;
 	}
 }

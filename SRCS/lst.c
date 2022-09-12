@@ -37,7 +37,8 @@ t_stack	*ft_lstnew_s(int content)
 	list->data = content;
 	list->pos = 0;
 	list->target = 0;
-	list->cost = 0;
+	list->cost_a = 0;
+	list->cost_b = 0;
 	list->next = NULL;
 	return (list);
 }
