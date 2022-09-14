@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_s_stack(t_stack **begin)
+void	ft_s(t_stack **begin)
 {
 	t_stack	*elt2;
 
@@ -22,7 +22,7 @@ void	ft_s_stack(t_stack **begin)
 	(*begin) = elt2;
 }
 
-void	ft_r_stack(t_stack **begin)
+void	ft_r(t_stack **begin)
 {
 	t_stack	*last;
 	t_stack	*elt;
@@ -34,7 +34,7 @@ void	ft_r_stack(t_stack **begin)
 	elt->next = NULL;
 }
 
-void	ft_rr_stack(t_stack **begin)
+void	ft_rr(t_stack **begin)
 {
 	t_stack	*last;
 	t_stack	*elt;
@@ -51,16 +51,13 @@ void	ft_rr_stack(t_stack **begin)
 	(*begin) = last;
 }
 
-void	ft_p_stack(t_stack **begin_a, t_stack **begin_b)
+void	ft_p(t_stack **begin_a, t_stack **begin_b)
 {
 	t_stack	*elt_a;
 	t_stack	*elt_b;
 
 	elt_a = (*begin_a)->next;
 	elt_b = (*begin_b);
-
-//	ft_print_ma_list(begin_a);
-//	printf("\n");
 	(*begin_b) = (*begin_a);
 	(*begin_b)->next = elt_b;
 	(*begin_a) = elt_a;

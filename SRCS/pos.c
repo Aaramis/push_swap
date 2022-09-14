@@ -26,21 +26,58 @@ void	ft_pos_elt(t_stack **begin)
 	}
 }
 
+int	ft_val_min(t_stack **beg)
+{
+	t_stack	*elt;
+	int	val;
+
+	elt = (*beg);
+	val = elt->data;
+	while (elt)
+	{
+		if (elt->data < val)
+			val = elt->data;
+		elt = elt->next;
+	}
+	return (val);
+}
+
 void	ft_target_elt(t_stack **beg_a, t_stack **beg_b)
 {
 	t_stack	*elt_a;
 	t_stack	*elt_b;
+	int	valmin;
+	int	target;
 
+	
 	elt_b = (*beg_b);
+	valmin = ft_val_min(beg_a);
 	while (elt_b)
 	{
 		elt_a = (*beg_a);
-		while (elt_a && elt_b->index > elt_a->index)
+		target = valmin;
+		while (elt_a) //recup data a la plus proche en dessous de data b
+		{
+			if (elt_a->data < elt_b->data && elt_a->data > target)
+				target = elt_a->data;
+			elt_a = elt_a->next;
+		}
+		elt_a = (*beg_a);
+		while (elt_a->data != target)
+			elt_a = elt_a->next;
+		
+		if (elt_a->data < elt_b->data)
+			elt_b->target = elt_a->pos + 1;
+		else
+			elt_b->target = elt_a->pos;
+		/*
+		while (elt_a && elt_b->index > elt_a->index) // faux
 			elt_a = elt_a->next;
 		if (elt_a)
 			elt_b->target = elt_a->pos;
 		else
 			elt_b->target = ft_lstlast_s(*beg_a)->pos + 1;
+		*/
 		elt_b = elt_b->next;
 	}
 }
@@ -77,7 +114,7 @@ void	ft_cost(t_stack **beg_a, t_stack **beg_b)
 	while (elt)
 	{
 		elt->cost_b = ft_cost_to_top(size_b, elt->pos);
-		elt->cost_a = ft_cost_to_top((size_a + 1), elt->target);
+		elt->cost_a = ft_cost_to_top((size_a), elt->target);
 		elt = elt->next;
 	}
 }

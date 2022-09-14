@@ -29,15 +29,13 @@ int	main(int argc, char **argv)
 		{
 			ft_sort_by_median(&stack_a, &stack_b);
 			ft_algo_3(&stack_a);
-			ft_pos_elt(&stack_a);
-			ft_pos_elt(&stack_b);
-			ft_target_elt(&stack_a, &stack_b);
-			ft_cost(&stack_a, &stack_b);
+			ft_algo_fin(&stack_a, &stack_b);
+			ft_fin_sort(&stack_a);
 		}
 	}
-	ft_print_ma_list(&stack_a);
-	printf("\n");
-	ft_print_ma_list(&stack_b);
+//	ft_print_ma_list(&stack_a);
+//	printf("\n");
+//	ft_print_ma_list(&stack_b);
 	ft_lstclear_s(&stack_a);
 	return (0);
 }
