@@ -51,21 +51,6 @@ void	ft_lstadd_front_s(t_stack **lst, t_stack *new)
 	(*lst) = new;
 }
 
-void	ft_lstadd_back_s(t_stack **lst, t_stack *new)
-{
-	t_stack	*lst_last;
-	
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	lst_last = ft_lstlast_s(*lst);
-	lst_last->next = new;
-}
-
 t_stack	*ft_lstlast_s(t_stack *lst)
 {
 	if (!lst)

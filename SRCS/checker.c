@@ -18,17 +18,14 @@ void	ft_lst_check_sort(t_stack **begin)
 	t_stack	*first;
 
 	first = *begin;
-	// ft_print_ma_list(begin);
 	while (first && first->next)
 	{
 		next = first->next;
-//		ft_printf("%d %d\n",next->index, first->index);
 		if (next->index < first->index)
 			break ;
 		first = next;
 		next = next->next;
 	}
-//	printf("%p %d\n",first->next, first->index);
 	if (!first->next)
 		exit (0);
 }

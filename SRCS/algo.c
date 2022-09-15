@@ -12,19 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_print_ma_list(t_stack **begin)
-{
-	t_stack	*elt;
-
-	elt = *begin;
-	while (elt)
-	{
-		//ft_printf("val: %d - ind: %d - pos: %d - ad: %p - pt: %p \n", elt->data, elt->index, elt->pos, elt, elt->next);
-		ft_printf("val: %d - ind: %d - pos: %d - target: %d - costA: %d - costB: %d\n", elt->data, elt->index, elt->pos, elt->target, elt->cost_a, elt->cost_b);
-		elt = elt->next;
-	}
-}
-
 void	ft_algo_3(t_stack **begin)
 {
 	t_stack	*s_elt;
@@ -81,46 +68,7 @@ void	ft_sort_by_median(t_stack **begin_a, t_stack **begin_b)
 	{
 		ft_p(begin_a, begin_b);
 		write(1, "pb\n", 3);
-		
 	}
-//	ft_print_ma_list(begin_a);
-//	printf("\n");
-//	ft_print_ma_list(begin_b);
-}
-
-int	ft_cos_tot(int ca, int cb)
-{
-	if ((ca - cb) == (cb - ca))
-	{
-		if (ca > cb)
-			return (ft_abs(ca));
-		return (ft_abs(cb));
-	}
-	else
-		return ((ft_abs(ca) + ft_abs(cb)));
-}
-
-t_stack	*ft_cos_min(t_stack **begin)
-{
-	t_stack	*elt;
-	t_stack	*ret;
-	int	n;
-
-	elt = (*begin);
-	ret = (*begin);
-	n = ft_cos_tot((*begin)->cost_a, (*begin)->cost_b);
-	while (elt)
-	{
-		if (n > ft_cos_tot(elt->cost_a, elt->cost_b))
-		{
-			n = ft_cos_tot(elt->cost_a, elt->cost_b);
-			ret = elt;
-		}
-		if (n == 0)
-			return (ret);
-		elt = elt->next;
-	}
-	return (ret);
 }
 
 void	ft_algo_fin(t_stack **stack_a, t_stack **stack_b)
@@ -135,12 +83,6 @@ void	ft_algo_fin(t_stack **stack_a, t_stack **stack_b)
 	ft_pos_elt(stack_b);
 	ft_target_elt(stack_a, stack_b);
 	ft_cost(stack_a, stack_b);
-/*
-	ft_print_ma_list(stack_a);
-	printf("\n");
-	ft_print_ma_list(stack_b);
-	printf("\n");
-*/
 	elt = ft_cos_min(stack_b);
 	ca = elt->cost_a;
 	cb = elt->cost_b;

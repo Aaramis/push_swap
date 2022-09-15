@@ -26,7 +26,6 @@ void	ft_index_stack(t_stack **begin)
 	while (i < size)
 	{
 		ft_pos_index(*begin, min, ++i);
-		//ft_printf(" %d min : %d - %d max : %d \n", i, min, size, max);
 		ft_pos_index(*begin, max, size--);
 		min = ft_lstnb_sup(*begin, min);
 		max = ft_lstnb_inf(*begin, max);

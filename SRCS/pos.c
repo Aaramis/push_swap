@@ -49,14 +49,13 @@ void	ft_target_elt(t_stack **beg_a, t_stack **beg_b)
 	int	valmin;
 	int	target;
 
-	
 	elt_b = (*beg_b);
 	valmin = ft_val_min(beg_a);
 	while (elt_b)
 	{
 		elt_a = (*beg_a);
 		target = valmin;
-		while (elt_a) //recup data a la plus proche en dessous de data b
+		while (elt_a)
 		{
 			if (elt_a->data < elt_b->data && elt_a->data > target)
 				target = elt_a->data;
@@ -70,51 +69,6 @@ void	ft_target_elt(t_stack **beg_a, t_stack **beg_b)
 			elt_b->target = elt_a->pos + 1;
 		else
 			elt_b->target = elt_a->pos;
-		/*
-		while (elt_a && elt_b->index > elt_a->index) // faux
-			elt_a = elt_a->next;
-		if (elt_a)
-			elt_b->target = elt_a->pos;
-		else
-			elt_b->target = ft_lstlast_s(*beg_a)->pos + 1;
-		*/
 		elt_b = elt_b->next;
-	}
-}
-
-int	ft_cost_to_top(int size, int value)
-{
-	if ((size / 2) < value)
-		return (value - size);
-	else
-		return (value);
-}
-
-//	printf("size a %d  a %d b %d \n",size_a, na, nb);
-/*
-	if ((na - nb) == (nb - na))
-	{
-		if (na > nb)
-			return (ft_abs(na));
-		return (ft_abs(nb));
-	}
-	else
-		return ((ft_abs(na) + ft_abs(nb)));
-*/
-
-void	ft_cost(t_stack **beg_a, t_stack **beg_b)
-{
-	t_stack	*elt;
-	int	size_a;
-	int	size_b;
-
-	elt = (*beg_b);
-	size_a = ft_lstsize_s(*beg_a);
-	size_b = ft_lstsize_s(*beg_b);
-	while (elt)
-	{
-		elt->cost_b = ft_cost_to_top(size_b, elt->pos);
-		elt->cost_a = ft_cost_to_top((size_a), elt->target);
-		elt = elt->next;
 	}
 }
