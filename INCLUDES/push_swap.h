@@ -60,11 +60,13 @@ void	ft_sort_by_median(t_stack **begin_a, t_stack **begin_b);
 void	ft_algo_fin(t_stack **stack_a, t_stack **stack_b);
 void	ft_fin_sort(t_stack **beg);
 
+//algo_fin
+
 // mouve
-void	ft_s(t_stack **begin);
-void	ft_r(t_stack **begin);
-void	ft_rr(t_stack **begin);
-void	ft_p(t_stack **begin_a, t_stack **begin_b);
+void	ft_s(t_stack **begin, int display);
+void	ft_r(t_stack **begin, int display);
+void	ft_rr(t_stack **begin, int display);
+void	ft_p(t_stack **begin_a, t_stack **begin_b, int display);
 
 //pos
 void	ft_pos_elt(t_stack **begin);
