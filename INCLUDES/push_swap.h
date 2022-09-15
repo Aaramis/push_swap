@@ -57,10 +57,12 @@ void	ft_pos_index(t_stack *lst, int value, int ind);
 // algo
 void	ft_algo_3(t_stack **begin);
 void	ft_sort_by_median(t_stack **begin_a, t_stack **begin_b);
-void	ft_algo_fin(t_stack **stack_a, t_stack **stack_b);
-void	ft_fin_sort(t_stack **beg);
 
 //algo_fin
+void	ft_fin_mv(t_stack **stack_a, t_stack **stack_b, int *ca, int *cb);
+void	ft_fin_mv2(t_stack **stack_a, t_stack **stack_b, int *ca, int *cb);
+void	ft_algo_fin(t_stack **stack_a, t_stack **stack_b);
+void	ft_fin_sort(t_stack **beg);
 
 // mouve
 void	ft_s(t_stack **begin, int display);

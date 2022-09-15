@@ -15,7 +15,7 @@
 void	ft_algo_3(t_stack **begin)
 {
 	t_stack	*s_elt;
-	int	indmax;
+	int		indmax;
 
 	indmax = (*begin)->index;
 	s_elt = (*begin);
@@ -44,7 +44,7 @@ void	ft_sort_by_median(t_stack **begin_a, t_stack **begin_b)
 	i = ft_lstsize_s(*begin_a);
 	while (i--)
 	{
-		if ((*begin_a)->index < (size/2))
+		if ((*begin_a)->index < (size / 2))
 			ft_p(begin_a, begin_b, 2);
 		else
 			ft_r(begin_a, 1);

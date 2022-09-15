@@ -20,7 +20,7 @@ t_stack	*ft_cos_min(t_stack **begin)
 {
 	t_stack	*elt;
 	t_stack	*ret;
-	int	n;
+	int		n;
 
 	elt = (*begin);
 	ret = (*begin);
@@ -50,8 +50,8 @@ int	ft_cost_to_top(int size, int value)
 void	ft_cost(t_stack **beg_a, t_stack **beg_b)
 {
 	t_stack	*elt;
-	int	size_a;
-	int	size_b;
+	int		size_a;
+	int		size_b;
 
 	elt = (*beg_b);
 	size_a = ft_lstsize_s(*beg_a);

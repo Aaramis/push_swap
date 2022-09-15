@@ -14,12 +14,12 @@
 
 void	ft_pos_elt(t_stack **begin)
 {
-	int	i;
 	t_stack	*elt;
+	int		i;
 
 	i = 0;
 	elt = (*begin);
-	while(elt)
+	while (elt)
 	{
 		elt->pos = i++;
 		elt = elt->next;
@@ -29,7 +29,7 @@ void	ft_pos_elt(t_stack **begin)
 int	ft_val_min(t_stack **beg)
 {
 	t_stack	*elt;
-	int	val;
+	int		val;
 
 	elt = (*beg);
 	val = elt->data;
@@ -46,15 +46,13 @@ void	ft_target_elt(t_stack **beg_a, t_stack **beg_b)
 {
 	t_stack	*elt_a;
 	t_stack	*elt_b;
-	int	valmin;
-	int	target;
+	int		target;
 
 	elt_b = (*beg_b);
-	valmin = ft_val_min(beg_a);
 	while (elt_b)
 	{
 		elt_a = (*beg_a);
-		target = valmin;
+		target = ft_val_min(beg_a);
 		while (elt_a)
 		{
 			if (elt_a->data < elt_b->data && elt_a->data > target)
@@ -64,7 +62,6 @@ void	ft_target_elt(t_stack **beg_a, t_stack **beg_b)
 		elt_a = (*beg_a);
 		while (elt_a->data != target)
 			elt_a = elt_a->next;
-		
 		if (elt_a->data < elt_b->data)
 			elt_b->target = elt_a->pos + 1;
 		else
