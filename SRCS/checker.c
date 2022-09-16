@@ -45,24 +45,69 @@ void	ft_check_nbr(char *str)
 	}
 }
 
-// ne check pas encore les overflow
+long int	ft_l_atoi(const char *nptr)
+{
+	long int	value;
+	long int	neg;
+	long int	i;
+
+	if (!nptr)
+		return (0);
+	value = 0;
+	i = 0;
+	neg = 1;
+	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '-')
+	{
+		i++;
+		neg = -1;
+	}
+	if (nptr[i] == '+' && neg == 1)
+		i++;
+	while (nptr[i] >= '0' && nptr[i] <= '9' && nptr)
+	{
+		value = value * 10 + nptr[i] - '0';
+		i++;
+	}
+	return (value * neg);
+}
+
+int	ft_check_overflow(char **argv, int pos)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strlen(argv[pos]) > ft_strlen("21474836470"))
+		i = 1;
+	if (ft_l_atoi(argv[pos]) > 2147483647)
+		i = 1;
+	if (ft_l_atoi(argv[pos]) < -2147483648)
+		i = 1;
+	return (i);
+}
+
 void	ft_check_argv(int argc, char **argv)
 {
 	int	pos;
 	int	pos2;
+	int	i;
 
 	pos = argc;
 	while (--pos)
 	{
 		pos2 = pos;
 		ft_check_nbr(argv[pos]);
+		i = ft_check_overflow(argv, pos);
 		while (--pos2)
 		{
 			if (ft_atoi(argv[pos]) == ft_atoi(argv[pos2]))
-			{
-				write(2, "Error\n", 6);
-				exit (1);
-			}
+				i = 1;
+		}
+		if (i)
+		{
+			write(2, "Error\n", 6);
+			exit (1);
 		}
 	}
 }

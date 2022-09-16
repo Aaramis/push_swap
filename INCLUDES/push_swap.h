@@ -38,6 +38,8 @@ void	ft_index_stack(t_stack **begin);
 //checker
 void	ft_check_nbr(char *str);
 void	ft_check_argv(int argc, char **argv);
+long int	ft_l_atoi(const char *nptr);
+int	ft_check_overflow(char **argv, int pos);
 void	ft_lst_check_sort(t_stack **begin);
 
 //lst
