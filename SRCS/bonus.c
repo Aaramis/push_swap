@@ -19,8 +19,6 @@ int	main(int argc, char **argv)
 	ft_print_ma_list(&stack_a);
 	ft_printf("\n");
 	ft_print_ma_list(&stack_b);
-	(void)argc;
-	(void)argv;
-	ft_printf("Hello World!\n");
+	ft_lstclear_s(&stack_a);
 	return (0);
 }

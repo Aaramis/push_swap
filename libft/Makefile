@@ -25,7 +25,8 @@ FILES = ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint ft_strlen 	\
 	ft_putnbrbase_fd							\
 	ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast ft_lstadd_back 		\
 	ft_lstdelone ft_lstmemdel ft_lstclear ft_lstiter ft_lstmap		\
-	ft_printf ft_printf_tools ft_printf_p
+	ft_printf ft_printf_tools ft_printf_p					\
+	get_next_line get_next_line_utils
 
 SRCS = $(addsuffix .c, $(FILES))
 OBJS = $(addprefix $(SRCS_F),$(addsuffix .o, $(FILES)))
@@ -33,7 +34,8 @@ OBJS = $(addprefix $(SRCS_F),$(addsuffix .o, $(FILES)))
 #	HEADERS
 SRCS_H		= ./INCS
 LIBFT 		= libft.h
-PRINTF 		= ft_printf.h
+PRINTF 		= ft_pirintf.h
+GNL		= get_next_line.h
 
 #	LIBRARY
 NAME_LIB	= libft.a
