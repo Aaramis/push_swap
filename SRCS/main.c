@@ -12,18 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_print_ma_list(t_stack **begin)
-{
-	t_stack	*elt;
-
-	elt = *begin;
-	while (elt)
-	{
-		ft_printf("val: %d - ind: %d - pos: %d - target: %d - costA: %d - costB: %d\n", elt->data, elt->index, elt->pos, elt->target, elt->cost_a, elt->cost_b);
-		elt = elt->next;
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
