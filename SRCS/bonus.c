@@ -113,11 +113,11 @@ int	main(int argc, char **argv)
 		ft_printf("%s\n", str);
 		ft_checker_str(&stack_a, &stack_b, str);
 		ft_print_ma_list(&stack_a);
-	//	ft_lst_check_sort(&stack_a);
 		free(str);
 	}
 	(void)i;
 	(void)str;
+	ft_lst_check_sort(&stack_a);
 	ft_print_ma_list(&stack_a);
 	ft_printf("\n");
 	ft_print_ma_list(&stack_b);

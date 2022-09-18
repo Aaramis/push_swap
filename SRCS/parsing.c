@@ -60,12 +60,19 @@ t_stack	*ft_parsing2(char *argv)
 {
 	char	**tab;
 	int		i;
+	t_stack	*begin;
 
+	begin = NULL;
 	argv = ft_strjoin("A ", argv);
 	ft_replace(&argv);
 	i = ft_countword(argv, ' ');
 	tab = ft_split(argv, ' ');
-	return (ft_parsing(i, tab));
+	begin = ft_parsing(i, tab);
+	while (i--)
+		free(tab[i]);
+	free(tab);
+	free(argv);
+	return (begin);
 }
 
 t_stack	*ft_parsing(int argc, char **argv)
