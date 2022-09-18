@@ -94,6 +94,21 @@ void	ft_checker_str(t_stack **stack_a, t_stack **stack_b, char *str)
 	}
 }
 
+void	ft_lst_check_b(t_stack **begin)
+{
+	t_stack	*next;
+	t_stack	*first;
+
+	first = (*begin);
+	while (first && first->next)
+	{
+		next = first->next;
+		if (next->index < first->index)
+			break ;
+		first = next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -105,8 +120,10 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc > 1)
 	{
-		stack_a = ft_parsing(argc, argv);
-		ft_lst_check_sort(&stack_a);
+		if (argc > 2)
+			stack_a = ft_parsing(argc, argv);
+		else
+			stack_a = ft_parsing2(argv[1]);
 	}
 	while (get_next_line(0, &str) == 1)
 	{
@@ -122,5 +139,6 @@ int	main(int argc, char **argv)
 	ft_printf("\n");
 	ft_print_ma_list(&stack_b);
 	ft_lstclear_s(&stack_a);
+	ft_lstclear_s(&stack_b);
 	return (0);
 }

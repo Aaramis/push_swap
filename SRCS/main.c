@@ -26,7 +26,9 @@ int	main(int argc, char **argv)
 		else
 			stack_a = ft_parsing2(argv[1]);
 		ft_lst_check_sort(&stack_a);
-		if (ft_lstsize_s(stack_a) == 3)
+		if (ft_lstsize_s(stack_a) == 2)
+			ft_r(&stack_a, 1);
+		else if (ft_lstsize_s(stack_a) == 3)
 			ft_algo_3(&stack_a);
 		else if (ft_lstsize_s(stack_a) > 3)
 		{

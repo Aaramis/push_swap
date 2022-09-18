@@ -24,10 +24,12 @@ void	ft_lst_check_sort(t_stack **begin)
 		if (next->index < first->index)
 			break ;
 		first = next;
-		next = next->next;
 	}
 	if (!first->next)
+	{
+		ft_lstclear_s(begin);
 		exit (0);
+	}
 }
 
 void	ft_check_nbr(char *str)
