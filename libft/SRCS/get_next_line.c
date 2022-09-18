@@ -1,14 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 21:45:59 by agardett          #+#    #+#             */
-/*   Updated: 2022/06/02 20:58:50 by agardett         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+//	header
+//
 
 #include "get_next_line.h"
 
@@ -21,7 +13,7 @@ static char	*ft_fill_buff(int fd, char *buff_f)
 	if (!buff_i)
 		return (NULL);
 	re = 1;
-	while (re != 0 && !(ft_strchr((buff_f), '\n')))
+	while (re != 0 && !(ft_strchr_gnl((buff_f), '\n')))
 	{
 		re = read(fd, buff_i, BUFFER_SIZE);
 		if (re == -1)
@@ -31,7 +23,7 @@ static char	*ft_fill_buff(int fd, char *buff_f)
 		}
 		buff_i[re] = 0;
 		if (!buff_f)
-			buff_f = ft_ccalloc(1, 1);
+			buff_f = ft_calloc_gnl(1, 1);
 		buff_f = ft_strjoin_gnl(buff_f, buff_i);
 	}
 	free (buff_i);
@@ -74,7 +66,7 @@ char	*ft_new_buff(char *buff_f)
 	int		size;
 
 	i = 0;
-	size = ft_strlen(buff_f);
+	size = ft_strlen_gnl(buff_f);
 	while (buff_f[i] && buff_f[i] != '\n')
 		i++;
 	if (!buff_f[i])
@@ -95,17 +87,16 @@ char	*ft_new_buff(char *buff_f)
 	return (str);
 }
 
-char	*get_next_line(int fd)
+int	get_next_line(int fd, char **str)
 {
-	char		*str;
 	static char	*buff_f[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (0);
 	buff_f[fd] = ft_fill_buff(fd, buff_f[fd]);
 	if (!buff_f[fd])
-		return (NULL);
-	str = ft_findline(buff_f[fd]);
+		return (0);
+	(*str) = ft_findline(buff_f[fd]);
 	buff_f[fd] = ft_new_buff(buff_f[fd]);
-	return (str);
+	return (1);
 }

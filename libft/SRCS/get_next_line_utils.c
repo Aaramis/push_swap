@@ -1,18 +1,33 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 21:47:24 by agardett          #+#    #+#             */
-/*   Updated: 2022/06/02 20:58:28 by agardett         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+//	HEADER
+//
 
 #include "get_next_line.h"
 
-char	*ft_ccalloc(size_t nmemb, size_t size)
+int	ft_strlen_gnl(const char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+		i++;
+	return (i);
+}
+
+void	ft_bzero_gnl(void *s, size_t n)
+{
+	char	*str;
+	size_t	i;
+
+	str = (char *)s;
+	i = 0;
+	while (i < n)
+		str[i++] = 0;
+}
+
+char	*ft_calloc_gnl(size_t nmemb, size_t size)
 {
 	char	*str;
 
@@ -21,8 +36,23 @@ char	*ft_ccalloc(size_t nmemb, size_t size)
 	str = malloc(size * nmemb);
 	if (!str)
 		return (NULL);
-	ft_bzero((void *)str, (nmemb * size));
+	ft_bzero_gnl((void *)str, (nmemb * size));
 	return (str);
+}
+
+char	*ft_strchr_gnl(const char *s, int c)
+{
+	if (!s)
+		return (NULL);
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (c == 0 && *s == 0)
+		return ((char *)s);
+	return (NULL);
 }
 
 char	*ft_strjoin_gnl(char *s1, const char *s2)
@@ -32,7 +62,7 @@ char	*ft_strjoin_gnl(char *s1, const char *s2)
 	int		i;
 	int		j;
 
-	size = ft_strlen(s1) + ft_strlen(s2);
+	size = ft_strlen_gnl(s1) + ft_strlen_gnl(s2);
 	dest = (char *)malloc(sizeof(char) * (size + 1));
 	if (!dest || !s1 || !s2)
 		return (NULL);

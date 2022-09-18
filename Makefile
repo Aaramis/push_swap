@@ -91,6 +91,7 @@ fclean:		clean
 
 re: 		fclean
 		@$(MAKE) all
+		@$(MAKE) bonus
 
 bonus:		$(NAME_EX) $(NAME_B)
 
@@ -101,10 +102,10 @@ $(NAME_B):
 		"   Compilation des fichiers bonus   \n"	 	\
 		"####################################\n"		\
 		$(EOC)
-		cd $(SRC_F) && $(CC) $(WFLAGS) $(IFLAGS2) -c $(SRCS_B)
-		$(CC) $(GFLAGS) $(SRC_F)bonus.c $(OBJS_B) $(OBJS) $(LIB_F) -o $(NAME_B)
+		@cd $(SRC_F) && $(CC) $(WFLAGS) $(IFLAGS2) -c $(SRCS_B)
+		@$(CC) $(GFLAGS) $(SRC_F)bonus.c $(OBJS_B) $(OBJS) $(LIB_F) -o $(NAME_B)
 		@echo $(CYAN) "\n"					\
-		"------- Succeeded : fully cleaned -------\n"		\
+		"---- Succeeded : fully compiled ----\n"		\
 		$(EOC)
 
 .PHONY: 	all clean fclean re bonus

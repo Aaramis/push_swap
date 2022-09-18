@@ -24,6 +24,8 @@ void	ft_s(t_stack **begin, int display)
 		write(1, "sa\n", 3);
 	else if (display == 2)
 		write(1, "sb\n", 3);
+	else if (display == 3)
+		write(1, "ss\n", 3);
 }
 
 void	ft_r(t_stack **begin, int display)

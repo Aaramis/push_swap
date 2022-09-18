@@ -44,7 +44,6 @@ void	ft_index_stack(t_stack **begin)
 	}
 }
 
-//overflow pas gere
 t_stack	*ft_parsing(int argc, char **argv)
 {
 	t_stack	*begin;
