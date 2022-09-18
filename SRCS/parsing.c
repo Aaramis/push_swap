@@ -44,6 +44,30 @@ void	ft_index_stack(t_stack **begin)
 	}
 }
 
+void	ft_replace(char **str)
+{
+	int	i;
+
+	i = ft_strlen((*str));
+	while (i--)
+	{
+		if ((*str)[i] == '\n')
+			(*str)[i] = ' ';
+	}
+}
+
+t_stack	*ft_parsing2(char *argv)
+{
+	char	**tab;
+	int		i;
+
+	argv = ft_strjoin("A ", argv);
+	ft_replace(&argv);
+	i = ft_countword(argv, ' ');
+	tab = ft_split(argv, ' ');
+	return (ft_parsing(i, tab));
+}
+
 t_stack	*ft_parsing(int argc, char **argv)
 {
 	t_stack	*begin;

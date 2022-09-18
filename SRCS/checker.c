@@ -94,6 +94,7 @@ void	ft_check_argv(int argc, char **argv)
 	int	i;
 
 	pos = argc;
+	i = 0;
 	while (--pos)
 	{
 		pos2 = pos;

@@ -33,7 +33,9 @@ void		ft_print_ma_list(t_stack **begin); //a supprimer
 // int			main(int argc, char **argv);
 
 //parsing
+t_stack		*ft_parsing2(char *argv);
 t_stack		*ft_parsing(int argc, char **argv);
+void		ft_replace(char **str);
 void		ft_index_stack(t_stack **begin);
 
 //checker
