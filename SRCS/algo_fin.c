@@ -69,6 +69,7 @@ void	ft_algo_fin(t_stack **stack_a, t_stack **stack_b)
 		ft_fin_mv(stack_a, stack_b, &ca, &cb);
 		ft_fin_mv2(stack_a, stack_b, &ca, &cb);
 	}
+	ft_fin_sort(stack_a);
 }
 
 void	ft_fin_sort(t_stack **beg)

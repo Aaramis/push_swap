@@ -23,7 +23,7 @@ void	ft_s(t_stack **begin, int display)
 		elt2->next = (*begin);
 		(*begin) = elt2;
 		if (display == 1)
-		write(1, "sa\n", 3);
+			write(1, "sa\n", 3);
 		else if (display == 2)
 			write(1, "sb\n", 3);
 		else if (display == 3)

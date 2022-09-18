@@ -14,7 +14,7 @@
 
 # define BUFFER_SIZE 2048
 
-int	get_next_line(int fd, char **str);
+int		get_next_line(int fd, char **str);
 char	*ft_calloc_gnl(size_t nmemb, size_t size);
 char	*ft_strchr_gnl(const char *s, int c);
 int		ft_strlen_gnl(const char *str);

@@ -35,7 +35,6 @@ int	main(int argc, char **argv)
 			ft_sort_by_median(&stack_a, &stack_b);
 			ft_algo_3(&stack_a);
 			ft_algo_fin(&stack_a, &stack_b);
-			ft_fin_sort(&stack_a);
 		}
 	}
 	ft_lstclear_s(&stack_a);
