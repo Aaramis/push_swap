@@ -28,10 +28,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-//main
-void		ft_print_ma_list(t_stack **begin); //a supprimer
-// int			main(int argc, char **argv);
-
 //parsing
 t_stack		*ft_parsing2(char *argv);
 t_stack		*ft_parsing(int argc, char **argv);
@@ -61,6 +57,7 @@ void		ft_pos_index(t_stack *lst, int value, int ind);
 
 // algo
 void		ft_algo_3(t_stack **begin);
+void		ft_param_sort(t_stack **begin_a, int *size, int *n, int *m);
 void		ft_sort_by_median(t_stack **begin_a, t_stack **begin_b);
 
 //algo_fin

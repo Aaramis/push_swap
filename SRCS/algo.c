@@ -35,19 +35,41 @@ void	ft_algo_3(t_stack **begin)
 		ft_s(begin, 1);
 }
 
+void	ft_param_sort(t_stack **begin_a, int *size, int *n, int *m)
+{
+	*n = 0;
+	*size = ft_lstsize_s(*begin_a);
+	if (*size < 50)
+		*m = 3;
+	else if (*size < 400)
+		*m = 4;
+	else
+		*m = 6;
+}
+
 void	ft_sort_by_median(t_stack **begin_a, t_stack **begin_b)
 {
 	int	size;
 	int	i;
+	int	n;
+	int	m;
 
-	size = ft_lstsize_s(*begin_a);
-	i = ft_lstsize_s(*begin_a);
-	while (i--)
+	ft_param_sort(begin_a, &size, &n, &m);
+	while (++n < (m / 2))
 	{
-		if ((*begin_a)->index < (size / 2))
-			ft_p(begin_a, begin_b, 2);
-		else
-			ft_r(begin_a, 1);
+		i = ft_lstsize_s(*begin_a);
+		while (i--)
+		{
+			if ((*begin_a)->index < ((size / m) * n))
+				ft_p(begin_a, begin_b, 2);
+			else if ((*begin_a)->index > ((size / m) * (m - n)))
+			{
+				ft_p(begin_a, begin_b, 2);
+				ft_r(begin_b, 2);
+			}
+			else
+				ft_r(begin_a, 1);
+		}
 	}
 	while (ft_lstsize_s(*begin_a) > 3)
 		ft_p(begin_a, begin_b, 2);
