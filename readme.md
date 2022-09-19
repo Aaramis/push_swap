@@ -21,11 +21,15 @@ __Rules:__
 
 
 __Installation:__
+```sh
 	git clone git@github.com:Aaramis/push_swap.git
-	> make
+	make
+```
 
 **Generate integer list using ruby**
-* {% filename %}sudo apt-get install ruby{% endfilename %}
-* {% filename %}ARG=$(ruby -e puts "(1..100).to_a.shuffle.join(' '))";{% endfilename %}
-* {% filename %}./push_swap $ARG > test;{% endfilename %}
-* {% filename %}./checker $ARG < test;{% endfilename %}
+```sh
+sudo apt-get install ruby
+ARG=$(ruby -e puts "(1..100).to_a.shuffle.join(' '))"
+./push_swap $ARG > test
+./checker $ARG < test
+```
