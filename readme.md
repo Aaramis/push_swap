@@ -23,13 +23,17 @@ __Rules:__
 __Installation:__
 ```sh
 git clone git@github.com:Aaramis/push_swap.git;
-make
+make;
 ```
 
-**Generate integer list using ruby**
+__Generate integer list using ruby:__
 ```sh
 sudo apt-get install ruby;
 ARG=$(ruby -e puts "(1..100).to_a.shuffle.join(' '))";
+```
+
+__Execution:__
+```sh
 ./push_swap $ARG > test;
 ./checker $ARG < test;
 ```
