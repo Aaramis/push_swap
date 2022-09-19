@@ -21,8 +21,8 @@ __Rules:__
 
 
 __Installation:__
-* {% filename %}git clone git@github.com:Aaramis/push_swap.git{% endfilename %}
-* {% filename %}make{% endfilename %}
+	git clone git@github.com:Aaramis/push_swap.git
+	> make
 
 **Generate integer list using ruby**
 * {% filename %}sudo apt-get install ruby{% endfilename %}
