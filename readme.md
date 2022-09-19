@@ -22,14 +22,14 @@ __Rules:__
 
 __Installation:__
 ```sh
-	git clone git@github.com:Aaramis/push_swap.git
-	make
+git clone git@github.com:Aaramis/push_swap.git;
+make
 ```
 
 **Generate integer list using ruby**
 ```sh
-sudo apt-get install ruby
-ARG=$(ruby -e puts "(1..100).to_a.shuffle.join(' '))"
-./push_swap $ARG > test
-./checker $ARG < test
+sudo apt-get install ruby;
+ARG=$(ruby -e puts "(1..100).to_a.shuffle.join(' '))";
+./push_swap $ARG > test;
+./checker $ARG < test;
 ```
