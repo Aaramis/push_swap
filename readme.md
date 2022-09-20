@@ -24,6 +24,7 @@ __Installation:__
 ```sh
 git clone git@github.com:Aaramis/push_swap.git;
 make;
+make bonus;
 ```
 
 __Generate integer list using ruby:__
