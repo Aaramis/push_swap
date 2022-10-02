@@ -6,7 +6,7 @@
 /*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 10:38:37 by agardett          #+#    #+#             */
-/*   Updated: 2022/09/10 14:29:45 by agardett         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:43:50 by agardett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_lst_check_sort(t_stack **begin)
 	}
 }
 
-void	ft_check_nbr(char *str)
+void	ft_check_nbr(char *str, char **tab, char *argv, int j)
 {
 	if (*str == 45)
 		str++;
@@ -40,6 +40,8 @@ void	ft_check_nbr(char *str)
 	{
 		if (!ft_isdigit(*str))
 		{
+			if (j)
+				ft_free_tab(tab, argv);
 			write(2, "Error\n", 6);
 			exit (1);
 		}
@@ -89,7 +91,7 @@ int	ft_check_overflow(char **argv, int pos)
 	return (i);
 }
 
-void	ft_check_argv(int argc, char **argv)
+void	ft_check_argv(int argc, char **argv, char *argv2, int j)
 {
 	int	pos;
 	int	pos2;
@@ -100,13 +102,15 @@ void	ft_check_argv(int argc, char **argv)
 	while (--pos)
 	{
 		pos2 = pos;
-		ft_check_nbr(argv[pos]);
+		ft_check_nbr(argv[pos], argv, argv2, j);
 		i = ft_check_overflow(argv, pos);
-		while (--pos2)
+		while (--pos2 && !i)
 		{
 			if (ft_atoi(argv[pos]) == ft_atoi(argv[pos2]))
 				i = 1;
 		}
+		if (i && j)
+			ft_free_tab(argv, argv2);
 		if (i)
 		{
 			write(2, "Error\n", 6);

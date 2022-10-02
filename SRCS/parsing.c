@@ -6,7 +6,7 @@
 /*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 10:41:12 by agardett          #+#    #+#             */
-/*   Updated: 2022/09/10 12:23:58 by agardett         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:42:47 by agardett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,21 @@ void	ft_replace(char **str)
 	}
 }
 
+void	ft_free_tab(char **tab, char *argv)
+{
+	int	i;
+
+	if (argv)
+	{	
+		i = ft_countword(argv, ' ');
+		while (i--)
+			free(tab[i]);
+		free(tab);
+		free(argv);
+	}
+	(void)i;
+}
+
 t_stack	*ft_parsing2(char *argv)
 {
 	char	**tab;
@@ -55,22 +70,19 @@ t_stack	*ft_parsing2(char *argv)
 	ft_replace(&argv);
 	i = ft_countword(argv, ' ');
 	tab = ft_split(argv, ' ');
-	begin = ft_parsing(i, tab);
-	while (i--)
-		free(tab[i]);
-	free(tab);
-	free(argv);
+	begin = ft_parsing(i, tab, argv, 1);
+	ft_free_tab(tab, argv);
 	return (begin);
 }
 
-t_stack	*ft_parsing(int argc, char **argv)
+t_stack	*ft_parsing(int argc, char **argv, char *argv2, int j)
 {
 	t_stack	*begin;
 	t_stack	*newelt;
 
 	newelt = NULL;
 	begin = NULL;
-	ft_check_argv(argc, argv);
+	ft_check_argv(argc, argv, argv2, j);
 	while (--argc)
 	{
 		newelt = ft_lstnew_s(ft_atoi(argv[argc]));

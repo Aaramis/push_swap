@@ -6,7 +6,7 @@
 /*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 10:36:35 by agardett          #+#    #+#             */
-/*   Updated: 2022/09/10 10:36:54 by agardett         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:21:46 by agardett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		if (argc > 2)
-			stack_a = ft_parsing(argc, argv);
+			stack_a = ft_parsing(argc, argv, NULL, 0);
 		else
 			stack_a = ft_parsing2(argv[1]);
 	}

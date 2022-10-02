@@ -6,7 +6,7 @@
 /*   By: agardett <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 10:31:52 by agardett          #+#    #+#             */
-/*   Updated: 2022/09/10 18:28:35 by agardett         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:30:44 by agardett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ typedef struct s_stack
 }	t_stack;
 
 //parsing
+void		ft_free_tab(char **tab, char *argv);
 t_stack		*ft_parsing2(char *argv);
-t_stack		*ft_parsing(int argc, char **argv);
+t_stack		*ft_parsing(int argc, char **argv, char *argv2, int j);
 void		ft_replace(char **str);
 void		ft_index_stack(t_stack **begin);
 
 //checker
-void		ft_check_nbr(char *str);
-void		ft_check_argv(int argc, char **argv);
+void		ft_check_nbr(char *str, char **tab, char *argv, int j);
+void		ft_check_argv(int argc, char **argv, char *argv2, int j);
 long int	ft_l_atoi(const char *nptr);
 int			ft_check_overflow(char **argv, int pos);
 void		ft_lst_check_sort(t_stack **begin);
